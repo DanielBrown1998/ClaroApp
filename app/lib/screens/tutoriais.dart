@@ -10,28 +10,49 @@ class Tutoriais extends StatelessWidget {
     List<Map<String, dynamic>> list = [
       {
         "icon": Icons.phone,
-        "text": "Como fazer chamadas",
+        "text": "Configurar Wi-fi mesh",
         "function": () {
           print("chamadas");
         },
       },
       {
         "icon": Icons.message,
-        "text": "Usar Whatsapp",
+        "text": "Canais Claro",
         "function": () {
           print("whatsapp");
         },
       },
       {
         "icon": Icons.wallet,
-        "text": "Consultar faturas",
+        "text": "Minhas faturas",
         "function": () {
           print("faturas");
         },
       },
       {
         "icon": Icons.wifi,
-        "text": "Conectar ao Wi-fi",
+        "text": "Como gerenciar o meu Wi-fi",
+        "function": () {
+          print("wi-fi");
+        },
+      },
+      {
+        "icon": Icons.auto_awesome,
+        "text": "Como automatizar tarefas",
+        "function": () {
+          print("wi-fi");
+        },
+      },
+      {
+        "icon": Icons.integration_instructions,
+        "text": "Claro e I.A",
+        "function": () {
+          print("wi-fi");
+        },
+      },
+      {
+        "icon": Icons.stream,
+        "text": "Vincular Streaming",
         "function": () {
           print("wi-fi");
         },

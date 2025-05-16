@@ -33,6 +33,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController prompt = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
@@ -41,18 +42,64 @@ class _HomeState extends State<Home> {
         actionsIconTheme: Theme.of(context).appBarTheme.actionsIconTheme,
         title: Text(widget.title),
       ),
-      body: GridView.builder(
-        itemCount: map.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-        ),
-        itemBuilder: (context, index) {
-          return GridItem(
-            text: map[index]["name"],
-            icon: map[index]["icon"],
-            route: map[index]["route"],
-          );
-        },
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              height: 250,
+              width: double.maxFinite,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 24.0, left: 24, top: 8, bottom: 8),
+                    child: Center(
+                      child: Text("Oi, eu sou Rafaela, sua I.A para suporte, como eu poderia te ajudar hoje? ", style: TextStyle(
+                        color: PaletteColors.textColor, 
+                        fontSize: 20,
+                        fontStyle: FontStyle.italic
+                      ),),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: TextFormField(
+                      controller: prompt,
+                      cursorColor: PaletteColors.primaryColors,
+                      decoration: InputDecoration(
+                        labelText: "digite seu problema aqui!",
+                        icon: Icon(Icons.search, size: 24,),
+                        iconColor: PaletteColors.primaryColors,
+                        labelStyle: TextStyle(
+                          fontSize: 16,
+                          color: PaletteColors.primaryColors,
+                        ),
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(onPressed: (){}, child: Text("buscar", style: TextStyle(
+                    color: PaletteColors.primaryColors
+                  ),))
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: GridView.builder(
+              itemCount: map.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
+              itemBuilder: (context, index) {
+                return GridItem(
+                  text: map[index]["name"],
+                  icon: map[index]["icon"],
+                  route: map[index]["route"],
+                );
+              },
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: PaletteColors.primaryColors,
