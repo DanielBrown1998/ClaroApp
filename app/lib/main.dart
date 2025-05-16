@@ -1,3 +1,6 @@
+import 'package:app/screens/aula_video.dart';
+import 'package:app/screens/help_fast.dart';
+import 'package:app/screens/tutoriais.dart';
 import 'package:app/screens/home.dart';
 import 'package:app/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +22,13 @@ class ClaroHelp extends StatelessWidget {
         textTheme: ClaroThemeData.textTheme,
         primaryColor: ClaroThemeData.primaryColor,
       ),
-      home: const Home(title: 'Claro Ajuda'),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const Home(title: 'Claro Ajuda'),
+        "tutoriais": (context) => const Tutoriais(),
+        "help": (context) => const HelpFast(),
+        "aula": (context) => const VideoAula(),
+      },
     );
   }
 }

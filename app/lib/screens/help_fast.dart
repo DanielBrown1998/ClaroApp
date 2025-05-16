@@ -1,31 +1,21 @@
-import 'package:app/components/list_item.dart';
+import 'package:app/components/grid_item.dart';
 import 'package:app/theme/theme.dart';
 import 'package:flutter/material.dart';
 
-class VideoAula extends StatelessWidget {
-  const VideoAula({super.key});
+class HelpFast extends StatelessWidget {
+  const HelpFast({super.key});
 
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> list = [
       {
         "icon": Icons.phone,
-        "text": "Como usar o App minha claro",
+        "text": "Ligar para o suporte Claro",
         "function": () {},
       },
       {
-        "icon": Icons.message,
-        "text": "Como mudar meu plano",
-        "function": () {},
-      },
-      {
-        "icon": Icons.wallet,
-        "text": "Como configrurar claro-tv",
-        "function": () {},
-      },
-      {
-        "icon": Icons.wifi,
-        "text": "Como configurar o meu wi-fi",
+        "icon": Icons.support_agent_outlined,
+        "text": "Falar com atendente",
         "function": () {},
       },
     ];
@@ -36,7 +26,7 @@ class VideoAula extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 10,
         title: Text(
-          "Aulas em Video",
+          "Ajuda Rapida",
           style: TextStyle(color: PaletteColors.colorTitleTextItem),
         ),
       ),
@@ -50,12 +40,13 @@ class VideoAula extends StatelessWidget {
               child: ListView.builder(
                 itemCount: list.length,
                 itemBuilder: (context, index) {
-                  return ListItem(
-                    icon: list[index]["icon"],
-                    text: list[index]["text"],
-                    onClick: () {
-                      print(list[index]["text"]);
-                    },
+                  return SizedBox(
+                    height: MediaQuery.of(context).size.height / 3,
+                    child: GridItem(
+                      icon: list[index]["icon"],
+                      text: list[index]["text"],
+                      route: "",
+                    ),
                   );
                 },
               ),

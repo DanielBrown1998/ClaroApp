@@ -13,16 +13,36 @@ class ListItem extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: PaletteColors.backgroundCardColor,
-      child: InkWell(
-        onTap: onClick(),
-        child: Card(
-          child: Row(
-            children: [
-              Icon(icon, color: PaletteColors.primaryColors),
-              Text(text, style: TextStyle(color: PaletteColors.textColor,)),
-            ],
+    return SizedBox(
+      width: double.maxFinite,
+      height: MediaQuery.of(context).size.height / 8,
+      child: Material(
+        color: PaletteColors.backgroundCardColor,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          splashColor: PaletteColors.primaryColors,
+          onTap: () async{
+            onClick();
+          },
+          child: Card(
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 8.0,
+                    bottom: 8.0,
+                    left: 16,
+                    right: 16,
+                  ),
+                  child: Icon(
+                    icon,
+                    color: PaletteColors.primaryColors,
+                    size: 40,
+                  ),
+                ),
+                Text(text, style: TextStyle(color: PaletteColors.textColor)),
+              ],
+            ),
           ),
         ),
       ),

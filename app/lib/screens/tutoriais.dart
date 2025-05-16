@@ -2,31 +2,39 @@ import 'package:app/components/list_item.dart';
 import 'package:app/theme/theme.dart';
 import 'package:flutter/material.dart';
 
-class VideoAula extends StatelessWidget {
-  const VideoAula({super.key});
+class Tutoriais extends StatelessWidget {
+  const Tutoriais({super.key});
 
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> list = [
       {
         "icon": Icons.phone,
-        "text": "Como usar o App minha claro",
-        "function": () {},
+        "text": "Como fazer chamadas",
+        "function": () {
+          print("chamadas");
+        },
       },
       {
         "icon": Icons.message,
-        "text": "Como mudar meu plano",
-        "function": () {},
+        "text": "Usar Whatsapp",
+        "function": () {
+          print("whatsapp");
+        },
       },
       {
         "icon": Icons.wallet,
-        "text": "Como configrurar claro-tv",
-        "function": () {},
+        "text": "Consultar faturas",
+        "function": () {
+          print("faturas");
+        },
       },
       {
         "icon": Icons.wifi,
-        "text": "Como configurar o meu wi-fi",
-        "function": () {},
+        "text": "Conectar ao Wi-fi",
+        "function": () {
+          print("wi-fi");
+        },
       },
     ];
 
@@ -36,7 +44,7 @@ class VideoAula extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 10,
         title: Text(
-          "Aulas em Video",
+          "Claro Ajuda",
           style: TextStyle(color: PaletteColors.colorTitleTextItem),
         ),
       ),
@@ -46,6 +54,22 @@ class VideoAula extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(
+              width: double.maxFinite,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Tutoriais",
+                  textAlign: TextAlign.left,
+
+                  style: TextStyle(
+                    color: PaletteColors.textColor,
+                    fontSize: 32,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
             Expanded(
               child: ListView.builder(
                 itemCount: list.length,
@@ -53,9 +77,7 @@ class VideoAula extends StatelessWidget {
                   return ListItem(
                     icon: list[index]["icon"],
                     text: list[index]["text"],
-                    onClick: () {
-                      print(list[index]["text"]);
-                    },
+                    onClick: list[index]["function"],
                   );
                 },
               ),

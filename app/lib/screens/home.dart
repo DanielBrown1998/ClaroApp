@@ -13,18 +13,22 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<Map<String, dynamic>> map = [
-    {"name": "Tutoriais", "icon": Icons.video_chat, "function": () {}},
+    {"name": "Tutoriais", "icon": Icons.video_chat, "route": "tutoriais"},
     {
       "name": "Video em Aula",
       "icon": Icons.play_circle_outline_sharp,
-      "function": () {},
+      "route": "aula",
     },
     {
       "name": "Ajuda Rapida",
       "icon": Icons.support_agent_sharp,
-      "function": () {},
+      "route": "help",
     },
-    {"name": "Quiz", "icon": Icons.question_mark, "function": () {}},
+    {
+      "name": "Perguntas Frequentes",
+      "icon": Icons.question_mark,
+      "route": "questions",
+    },
   ];
 
   @override
@@ -41,13 +45,12 @@ class _HomeState extends State<Home> {
         itemCount: map.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          
         ),
         itemBuilder: (context, index) {
           return GridItem(
             text: map[index]["name"],
             icon: map[index]["icon"],
-            onClick: map[index]["function"],
+            route: map[index]["route"],
           );
         },
       ),
